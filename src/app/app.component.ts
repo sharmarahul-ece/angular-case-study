@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { close } from './state/side-nav/side-nav.actions';
 
 @Component({
   selector: 'app-root',

@@ -1,1 +1,61 @@
+
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+@import 'assets/acs-theme.scss';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+mat-icon.icon-large  {
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+}
+
+mat-icon.icon-x-large  {
+    font-size: 35px;
+    width: 35px;
+    height: 35px;
+}
+
+@each $name, $value in $colors {
+    .text-#{$name} {
+        color: #{$value} !important;
+    }
+}
+
+@each $name, $value in $colors {
+    .bg-#{$name} {
+        background-color: $value;
+    }
+}
+
+$sides: (
+    'top': 'top',
+    'bottom': 'bottom',
+    'left': 'left',
+    'right': 'right',
+);
+
+@each $name, $value in $colors {
+    .border-#{$name} {
+        border: 1 solid $value;
+    }
+    .border-#{$name}-top {
+        border-top: 1px solid $value;
+    }
+    .border-#{$name}-bottom {
+        border-bottom: 1px solid $value;
+    }
+    .border-#{$name}-left {
+        border-left: 1px solid $value;
+    }
+    .border-#{$name}-right {
+        border-right: 1px solid $value;
+    }
+}
+

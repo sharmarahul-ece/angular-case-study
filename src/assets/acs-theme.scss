@@ -1,0 +1,33 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$acs-primary-palette:   mat-palette($mat-lime, A200);
+$acs-accent-palette:    mat-palette($mat-brown, 900);
+$acs-warn-palette:      mat-palette($mat-red);
+
+$acs-theme:     mat-dark-theme((
+    color: (
+        primary: $acs-primary-palette,
+        accent: $acs-accent-palette,
+        warn: $acs-warn-palette,
+    )
+));
+
+@include angular-material-theme($acs-theme);
+
+$acs-primary-color:     mat-color(map-get($acs-theme, primary));
+$acs-accent-color:      mat-color(map-get($acs-theme, accent));
+$acs-warn-color:        mat-color(map-get($acs-theme, warn));
+$acs-foreground-color:  mat-color(map-get($acs-theme, foreground));
+$acs-background-color:  mat-color(map-get($acs-theme, background));
+
+
+$colors: (
+    'primary':      $acs-primary-color,
+    'accent':       $acs-accent-color,
+    'warn':         $acs-accent-color,
+    'foreground':   $acs-accent-color,
+    'background':   $acs-accent-color
+);
+
+@debug $colors;

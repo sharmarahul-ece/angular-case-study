@@ -1,0 +1,15 @@
+<acs-toolbar></acs-toolbar>
+<div style="padding-top: 64px;">
+  <mat-sidenav-container color="accent" style="z-index: 99;" (backdropClick)="closeSideNav()" hasBackdrop="false">
+    <mat-sidenav color="accent" mode="push" [opened]="$sideNavState | async" autoFocus="false" fixedInViewport="true">
+      <div style="min-width: 12rem; margin-top: 64px;">
+        <acs-side-nav-list></acs-side-nav-list>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div style="padding: 1rem;">
+        <div style="height: 100vh;">Router Outlet will come here.</div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

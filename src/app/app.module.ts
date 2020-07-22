@@ -1,16 +1,40 @@
+import { HomeRoutingModule } from './home/home-routing.module';
+import { HomeModule } from './home/home.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
+import { StoreModule } from '@ngrx/store';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatCardModule } from '@angular/material/card';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+
+// State
+import { SideNavReducer } from './state/side-nav/side-nav.reducer';
+
+// Components
 import { AppComponent } from './app.component';
+import { LoginComponent } from './components/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatInputModule,
+    HomeModule,
+    HomeRoutingModule,
+    AppRoutingModule,
+    StoreModule.forRoot({sideNavState: SideNavReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
