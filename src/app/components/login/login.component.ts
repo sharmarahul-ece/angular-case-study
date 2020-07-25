@@ -1,6 +1,8 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store, select } from '@ngrx/store';
 
 @Component({
   selector: 'acs-login',
@@ -14,7 +16,12 @@ export class LoginComponent implements OnInit {
     password: new FormControl('admin@123', [Validators.required])
   });
 
-  constructor(private router: Router) { }
+  theme$: Observable<boolean>;
+
+  constructor(private router: Router,
+              private readonly store: Store<{themeState: boolean}>) { 
+    this.theme$ = store.pipe(select('themeState'));
+  }
 
   ngOnInit(): void {
   }

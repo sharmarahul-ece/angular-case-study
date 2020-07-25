@@ -1,6 +1,8 @@
 <mat-toolbar class="toolbar" color="primary">
   <!-- <button mat-mini-fab> -->
-  <mat-icon class="cursor-pointer icon-x-large" (click)="toggle()">menu</mat-icon>
+  <mat-icon class="cursor-pointer icon-x-large" (click)="toggleSideNav()">menu</mat-icon>
   <!-- </button> -->
   <span style="margin-left: 0.3rem;">Case Study : Angular UI/UX</span>
+  <span style="flex: 1 1 auto"></span>
+  <mat-slide-toggle [checked]="theme$ | async" labelPosition="'before'" color="accent" (change)="toggleTheme()">Dark Theme</mat-slide-toggle>
 </mat-toolbar>

@@ -4,12 +4,12 @@ import { login, logout } from "./auth.actions";
 
 export const initialState = true;
 
-const sideNavReducer = createReducer(
+const authReducer = createReducer(
     initialState,
     on(login, state => state = true),
     on(logout, state => state = false)
 );
 
-export function SideNavReducer(state : boolean, action: Action){
-    return sideNavReducer(state, action);
+export function AuthReducer(state : boolean, action: Action){
+    return authReducer(state, action);
 }

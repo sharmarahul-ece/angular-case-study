@@ -1,33 +1,57 @@
 @import '~@angular/material/theming';
 @include mat-core();
 
-$acs-primary-palette:   mat-palette($mat-lime, A200);
-$acs-accent-palette:    mat-palette($mat-brown, 900);
-$acs-warn-palette:      mat-palette($mat-red);
+@mixin set-color-variables($theme) {}
 
-$acs-theme:     mat-dark-theme((
-    color: (
-        primary: $acs-primary-palette,
-        accent: $acs-accent-palette,
-        warn: $acs-warn-palette,
-    )
-));
+$acs-primary-palette: mat-palette($mat-lime, A200);
+$acs-accent-palette: mat-palette($mat-brown, 900);
+$acs-warn-palette: mat-palette($mat-red);
+
+$acs-theme: mat-dark-theme((color: (primary: $acs-primary-palette,
+      accent: $acs-accent-palette,
+      warn: $acs-warn-palette,
+    )));
 
 @include angular-material-theme($acs-theme);
 
-$acs-primary-color:     mat-color(map-get($acs-theme, primary));
-$acs-accent-color:      mat-color(map-get($acs-theme, accent));
-$acs-warn-color:        mat-color(map-get($acs-theme, warn));
-$acs-foreground-color:  mat-color(map-get($acs-theme, foreground));
-$acs-background-color:  mat-color(map-get($acs-theme, background));
+$acs-primary-color: mat-color(map-get($acs-theme, primary));
+$acs-accent-color: mat-color(map-get($acs-theme, accent));
+$acs-warn-color: mat-color(map-get($acs-theme, warn));
+$acs-foreground-color: map-get($mat-dark-theme-foreground, base);
+$acs-background-color: map-get($mat-dark-theme-background, background);
 
+$colors: ('primary': $acs-primary-color,
+  'accent': $acs-accent-color,
+  'warn': $acs-warn-color,
+  'foreground': $acs-foreground-color,
+  'background': $acs-background-color);
 
-$colors: (
-    'primary':      $acs-primary-color,
-    'accent':       $acs-accent-color,
-    'warn':         $acs-accent-color,
-    'foreground':   $acs-accent-color,
-    'background':   $acs-accent-color
-);
+$acs-primary-palette: mat-palette($mat-indigo);
+$acs-accent-palette: mat-palette($mat-pink);
+$acs-warn-palette: mat-palette($mat-red);
 
+$acs-theme-light: mat-light-theme((color: (primary: $acs-primary-palette,
+      accent: $acs-accent-palette,
+      warn: $acs-warn-palette,
+    )));
+
+.light-theme {
+  @include angular-material-theme($acs-theme-light);
+}
+
+$acs-primary-color-light: mat-color(map-get($acs-theme-light, primary));
+$acs-accent-color-light: mat-color(map-get($acs-theme-light, accent));
+$acs-warn-color-light: mat-color(map-get($acs-theme-light, warn));
+$acs-foreground-color-light: map-get($mat-light-theme-foreground, base);
+$acs-background-color-light: map-get($mat-light-theme-background, background);
+
+$colors-light: ('primary': $acs-primary-color-light,
+  'accent': $acs-accent-color-light,
+  'warn': $acs-warn-color-light,
+  'foreground': $acs-foreground-color-light,
+  'background': $acs-background-color-light);
+
+// @debug $mat-dark-theme-background;
+// @debug $mat-light-theme-foreground;
 @debug $colors;
+@debug $colors-light;

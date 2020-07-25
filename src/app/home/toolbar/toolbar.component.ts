@@ -1,5 +1,7 @@
+import { Observable } from 'rxjs';
 import { toggle } from './../../state/side-nav/side-nav.actions';
-import { Store } from '@ngrx/store';
+import { toggle as themeToggle } from './../../state/theme/theme.actions';
+import { Store, select } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,13 +10,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
-  constructor(private readonly sideNavStore: Store) { }
+  theme$: Observable<boolean>;
+  constructor(private readonly store: Store<{themeState: boolean}>) { 
+    this.theme$ = store.pipe(select('themeState'))
+  }
 
   ngOnInit(): void {
   }
 
-  toggle(){
-    this.sideNavStore.dispatch(toggle());
+  toggleSideNav(){
+    this.store.dispatch(toggle());
+  }
+  
+  toggleTheme(){
+    this.store.dispatch(themeToggle());
   }
 
 }

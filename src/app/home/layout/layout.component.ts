@@ -11,13 +11,15 @@ import { close } from 'src/app/state/side-nav/side-nav.actions';
 export class LayoutComponent implements OnInit {
 
   $sideNavState:  Observable<boolean>;
+  theme$: Observable<boolean>;
 
-  constructor(private readonly sideNaveStore: Store<{sideNavState: boolean}>) { 
-    this.$sideNavState = sideNaveStore.pipe(select('sideNavState'));
+  constructor(private readonly store: Store<{sideNavState: boolean, themeState: boolean}>) { 
+    this.$sideNavState = store.pipe(select('sideNavState'));
+    this.theme$ = store.pipe(select('themeState'));
   }
 
   closeSideNav(){
-    this.sideNaveStore.dispatch(close());
+    this.store.dispatch(close());
   }
 
   ngOnInit(): void {
