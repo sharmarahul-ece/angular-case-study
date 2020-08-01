@@ -1,0 +1,25 @@
+.form-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    .form-item {
+        flex-basis: 40%;
+        width: 100%;
+    }
+    
+    .form-item-full {
+        flex-basis: 90%;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 780px){
+    .form-container {
+    
+        .form-item {
+            flex-basis: 80%;
+            width: 100%;
+        }
+    }
+}

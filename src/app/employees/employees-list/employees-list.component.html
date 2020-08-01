@@ -1,1 +1,55 @@
-<p>employees-list works!</p>
+<mat-card style="display: flex; flex-direction: row-reverse;">
+  <button mat-raised-button color="primary" (click)="isAddActive = true;">Add</button>
+</mat-card>
+<div style="margin-top: 1rem;">
+  <acs-employee-form *ngIf="isAddActive" [isEdit]="false" (Save)="onAdd($event)" (Cancel)="onAddCancel()"></acs-employee-form>
+</div>
+<mat-card style="margin-top: 1rem;">
+  <mat-card-header>
+    <mat-card-title class="text-primary">Employees</mat-card-title>
+  </mat-card-header>
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- ECode Column -->
+    <ng-container matColumnDef="eCode">
+      <mat-header-cell *matHeaderCellDef> Employee Code </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.eCode }} </mat-cell>
+    </ng-container>
+
+    <!-- First Name Column -->
+    <ng-container matColumnDef="firstName">
+      <mat-header-cell *matHeaderCellDef> First Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.firstName}} </mat-cell>
+    </ng-container>
+
+    <!-- Last Name Column -->
+    <ng-container matColumnDef="lastName">
+      <mat-header-cell *matHeaderCellDef> Last Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.lastName}} </mat-cell>
+    </ng-container>
+
+    <!-- Designation Column -->
+    <ng-container matColumnDef="designation">
+      <mat-header-cell *matHeaderCellDef> Designation </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.designation}} </mat-cell>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-icon-button color="warn" (click)="onRemove(element.eCode)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let element;let row; columns: displayedColumns;" (click)="rowClick(element)"></mat-row>
+  </mat-table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  <mat-card-content>
+  </mat-card-content>
+</mat-card>
+<div style="margin-top: 1rem;">
+  <acs-employee-form *ngIf="SelectedRow" [isEdit]="true" [Employee]="SelectedRow" (Save)="onUpdate($event)" (Cancel)="onUpdateCancel()"></acs-employee-form>
+</div>

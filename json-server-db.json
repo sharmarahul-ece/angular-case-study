@@ -1,0 +1,36 @@
+{
+  "auth": [{
+      "username": "admin",
+      "password": "admin@123"
+    },
+    {
+      "username": "rahul",
+      "password": "test@123"
+    }
+  ],
+  "employees": [{
+      "eCode": "E0000001",
+      "firstName": "First Name 1",
+      "lastName": "Last Name 1",
+      "designation": " Programmer Analyst II"
+    },
+    {
+      "eCode": "E0000002",
+      "firstName": "First Name 2",
+      "lastName": "Last Name 2",
+      "designation": " Programmer Analyst II"
+    },
+    {
+      "eCode": "E0000003",
+      "firstName": "First Name 3",
+      "lastName": "Last Name 3",
+      "designation": " Programmer Analyst II"
+    },
+    {
+      "eCode": "E0000004",
+      "firstName": "First Name 4",
+      "lastName": "Last Name 4",
+      "designation": " Programmer Analyst II"
+    }
+  ]
+}

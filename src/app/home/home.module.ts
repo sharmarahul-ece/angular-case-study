@@ -1,3 +1,4 @@
+import { MatCardModule } from '@angular/material/card';
 import { HomeRoutingModule } from './home-routing.module';
 import { EmployeesModule } from './../employees/employees.module';
 import { NgModule } from '@angular/core';
@@ -31,7 +32,8 @@ import { HomeComponent } from './home/home.component';
     MatToolbarModule,
     MatIconModule,
     MatListModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatCardModule
   ],
   exports: [
     HomeRoutingModule

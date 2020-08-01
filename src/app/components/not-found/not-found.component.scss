@@ -1,0 +1,14 @@
+.flex-all-centre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  min-height: 100vh;
+  @extend .flex-all-centre;
+}
+
+.card {
+  max-width: 400px;
+}

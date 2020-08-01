@@ -1,0 +1,26 @@
+.flex-all-centre {
+    display: flex;
+    flex-direction: column;;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-container {
+    min-height: calc(100vh - 200px);
+    @extend .flex-all-centre;
+  }
+  
+  .login-card {
+    max-width: 400px;
+  }
+  
+  .login-form {
+    margin-top: 2rem;
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .login-full-width {
+    width: 100%;
+  }

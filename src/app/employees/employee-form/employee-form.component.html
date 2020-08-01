@@ -1,0 +1,35 @@
+<mat-card class="border-primary">
+  <mat-card-header>
+    <mat-card-title class="text-primary">{{ isEdit ? 'Edit' : 'Add'}} - Employee</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form style="margin-top: 1rem;" class="form-container" (submit)="onSubmit($event)" [formGroup]="employeeForm">
+      <mat-form-field class="form-item">
+        <mat-label>Employee Code</mat-label>
+        <input matInput placeholder="Ex. E561XXXX" formControlName="eCode">
+        <mat-error *ngIf="isError('eCode', 'required')">Employee Code is required.</mat-error>
+        <mat-error *ngIf="isError('eCode', 'maxlength') || isError('eCode', 'minlength')">Employee Code must be of length 8.</mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-item">
+        <mat-label>Designation</mat-label>
+        <input matInput placeholder="Ex. Programmer Analyst II" formControlName="designation">
+        <mat-error *ngIf="isError('designation', 'required')">Designation is required.</mat-error>
+        <mat-error *ngIf="isError('designation', 'maxlength')">Length of designation cannot be longer than 50.</mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-item">
+        <mat-label>First Name</mat-label>
+        <input matInput placeholder="" formControlName="firstName">
+        <mat-error *ngIf="isError('firstName', 'required')">First Name is required.</mat-error>
+        <mat-error *ngIf="isError('firstName', 'minlength')">First Name must be of at least length 3.</mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-item">
+        <mat-label>Last Name</mat-label>
+        <input matInput placeholder="" formControlName="lastName">
+      </mat-form-field>
+      <div class="form-item-full" style="display: flex; flex-direction: row-reverse;">
+        <button type="submit" mat-raised-button color="primary" style="margin-right: 0.5rem; margin-left: 0.5rem;">SAVE</button>
+        <button type="button" mat-raised-button color="primary" (click)="onCancel()">CANCEL</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
