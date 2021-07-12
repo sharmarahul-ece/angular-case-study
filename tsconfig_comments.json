@@ -1,0 +1,31 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",                                // Base directory to resolve non-absolute module names.
+    "outDir": "./dist/out-tsc",                     // Redirect output structure to the directory. */
+    "forceConsistentCasingInFileNames": true,       // Force to follow standard names for a particular project type
+    "strict": true,                                 // Enable all strict type-checking options. */
+    "noImplicitReturns": true,                      // Report error when not all code paths in function return a value. */
+    "noFallthroughCasesInSwitch": true,             // Report errors for fallthrough cases in switch statement. */
+    "sourceMap": true,                              // Generates corresponding '.map' file.
+    "declaration": false,                           // Generates corresponding '.d.ts' file.
+    "downlevelIteration": true,                     // Provide full support for iterables in 'for-of', spread, and destructuring when targeting 'ES5' or 'ES3'
+    "experimentalDecorators": true,                 // Enables experimental support for ES7 decorators.
+    "moduleResolution": "node",                     // Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6).
+    "importHelpers": true,                          // Import emit helpers from 'tslib'. */
+    "target": "es2017",                             // Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017', or 'ESNEXT'.
+    "module": "es2020",                             // Specify module code generation: 'commonjs', 'amd', 'system', 'umd' or 'es2015'. */
+    "lib": [
+      "es2018",
+      "dom"
+    ]                                               // Specify library files to be included in the compilation:  */
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,       // Used for localization
+    "strictInjectionParameters": true,              // Reports Inection Errors
+    "strictInputAccessModifiers": true,             // Whether access modifiers such as private/protected/readonly are honored when assigning a binding expression to an @Input().
+    "strictTemplates": true                         // Enables strict template type checking. Strict mode is only available when using Ivy (Angular version 9 and later)
+  }
+  // Angular Options: https://angular.io/guide/angular-compiler-options
+}
